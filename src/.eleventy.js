@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
   // Copy logo from project root input/ if present (e.g. input/logo.png -> assets/img/logo.png)
   eleventyConfig.addPassthroughCopy({ "../input/logo.png": "assets/img/logo.png" });
   eleventyConfig.addPassthroughCopy({ "../input/logo.jpg": "assets/img/logo.jpg" });
+  eleventyConfig.addPassthroughCopy({ "../input/logo.webp": "assets/img/logo.webp" });
 
   return {
     dir: {

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eagle Security</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#080808;--fg:#b0b0b0;--dim:#4a4a4a;--hi:#dedede;--wh:#ffffff}
+  html,body{width:100%;height:100%;background:var(--bg);color:var(--fg);
+    font-family:'Share Tech Mono','Lucida Console','Courier New',monospace}
+  body::before{content:'';pointer-events:none;position:fixed;inset:0;
+    background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.14) 3px 4px);z-index:100}
+  body::after{content:'';pointer-events:none;position:fixed;inset:0;
+    background:radial-gradient(ellipse at 50% 50%,transparent 48%,rgba(0,0,0,.65) 100%);z-index:99}
+  .screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem .5rem}
+  .frame{font-size:clamp(.4rem,1.6vw,.8rem);line-height:1.28;animation:boot .65s steps(1) both}
+  @keyframes boot{0%,58%{opacity:0}100%{opacity:1}}
+  pre{font-family:inherit;font-size:inherit;line-height:inherit;white-space:pre;letter-spacing:.03em;user-select:none}
+  .d{color:var(--dim)}.b{color:var(--hi)}.w{color:var(--wh)}
+  .glow{color:var(--wh);text-shadow:0 0 4px #fff,0 0 10px #ccc,0 0 24px #888;animation:flicker 9s infinite}
+  @keyframes flicker{0%,100%{opacity:1}91%{opacity:1}92%{opacity:.72}93%{opacity:1}96.5%{opacity:.85}97%{opacity:1}}
+  a.mi{display:inline;color:var(--hi);text-decoration:none;cursor:pointer}
+  a.mi:hover,a.mi:focus{color:var(--wh);text-shadow:0 0 6px #fff,0 0 18px #aaa;outline:none}
+  a.mi:hover .arr,a.mi:focus .arr{opacity:1}
+  .arr{opacity:0}
+  .blink{animation:bl 1.1s step-end infinite}
+  @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+  .logo-row{display:none}
+  body.show-logo .logo-row{display:block}
+</style>
+</head>
+<body>
+<!--
+  A/B TEST:
+    Logo hidden  → default, no extra class on <body>
+    Logo visible → add class "show-logo" to <body>
+                   OR append ?logo=1 to the URL
+-->
+<div class="screen"><div class="frame"><pre
+><span class="d">+============================================================+</span>
+<span class="d">|                                                            |</span>
+<span class="glow">|   ███████╗ █████╗  ██████╗ ██╗     ███████╗              |</span>
+<span class="glow">|   ██╔════╝██╔══██╗██╔════╝ ██║     ██╔════╝              |</span>
+<span class="glow">|   █████╗  ███████║██║  ███╗██║     █████╗                |</span>
+<span class="glow">|   ██╔══╝  ██╔══██║██║   ██║██║     ██╔══╝                |</span>
+<span class="glow">|   ███████╗██║  ██║╚██████╔╝███████╗███████╗              |</span>
+<span class="glow">|   ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝              |</span>
+<span class="d">|              ~~  S E C U R I T Y  ~~                      |</span>
+<span class="d">|                                                            |</span>
+<span class="d">|  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  |</span>
+<span class="d">|                                                            |</span>
+<span class="d">|</span>  <span class="b">    __                                    __        </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b"> __/  \___                          ___/  \__      </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">/        \__                      __/        \     </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">\   ____   \________________________/   ____   /   </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b"> \_/    \__/`````--..______..--`````\__/    \_/    </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">  |  __  |    __  /          \  __    |  __  |    </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">   \/  \/    /  `-`  * ** *  `-`  \    \/  \/     </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">            /    /   /`    `\   \    \             </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">           `----`  /  ( >= )  \  `----`            </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">                  |   \ == /   |                   </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">                   \    \/    /                    </span>    <span class="d">|</span>
+<span class="d">|</span>  <span class="b">                    `--------`                     </span>    <span class="d">|</span>
+<span class="d">|                                                            |</span>
+<span class="d">|  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  |</span>
+<span class="d">|  COPYRIGHT (C) 2024 EAGLE SECURITY  ·  ALL RIGHTS RESERVED |</span>
+<span class="d">|                                                            |</span></pre
+><div class="logo-row"><pre
+><span class="d">|  - - - - - - - - - - - - - - - - - - - - - - - - - - - -  |</span>
+<span class="d">|</span>                   <span class="d">[ APPLICATION LOGO ]</span>                    <span class="d">|</span>
+<span class="d">|</span>       <span class="d">&lt;!-- replace with: &lt;img src="logo.png" ...&gt; --&gt;</span>       <span class="d">|</span>
+<span class="d">|  - - - - - - - - - - - - - - - - - - - - - - - - - - - -  |</span>
+<span class="d">|                                                            |</span></pre
+></div><pre
+><span class="d">|  =========================================================  |</span>
+<span class="d">|                                                            |</span>
+<span class="d">|</span>           <a class="mi" href="#download" tabindex="1"><span class="arr">&gt;&gt; </span><span class="b">[ D O W N L O A D ]</span></a>                           <span class="d">|</span>
+<span class="d">|                                                            |</span>
+<span class="d">|</span>           <a class="mi" href="#faq" tabindex="2"><span class="arr">&gt;&gt; </span><span class="b">[ F A Q ]</span></a>                                   <span class="d">|</span>
+<span class="d">|                                                            |</span>
+<span class="d">|</span>           <a class="mi" href="#impressum" tabindex="3"><span class="arr">&gt;&gt; </span><span class="b">[ I M P R E S S U M ]</span></a>                       <span class="d">|</span>
+<span class="d">|                                                            |</span>
+<span class="d">|</span>           <a class="mi" href="#privacy" tabindex="4"><span class="arr">&gt;&gt; </span><span class="b">[ P R I V A C Y ]</span></a>                           <span class="d">|</span>
+<span class="d">|                                                            |</span>
+<span class="d">|  =========================================================  |</span>
+<span class="d">|                                                            |</span>
+<span class="d">|</span>  <span class="d">USE ARROW KEYS OR MOUSE TO NAVIGATE</span>  <span class="blink">_</span>                  <span class="d">|</span>
+<span class="d">|                                                            |</span>
+<span class="d">+============================================================+</span>
+</pre></div></div>
+<script>
+  const items=[...document.querySelectorAll('a.mi')];
+  let cur=-1;
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){cur=(cur+1)%items.length;items[cur].focus();e.preventDefault()}
+    if(e.key==='ArrowUp'){cur=(cur-1+items.length)%items.length;items[cur].focus();e.preventDefault()}
+    if(e.key==='Enter'&&cur>=0)items[cur].click();
+  });
+  items.forEach((el,i)=>el.addEventListener('focus',()=>cur=i));
+  if(new URLSearchParams(location.search).get('logo')==='1')
+    document.body.classList.add('show-logo');
+</script>
+</body>
+</html>

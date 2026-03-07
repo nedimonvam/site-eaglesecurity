@@ -1,0 +1,8 @@
+# Build and deps (when src uses Node/11ty etc.)
+node_modules/
+_site/
+dist/
+.env
+*.log
+.DS_Store
+idea/

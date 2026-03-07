@@ -6,21 +6,32 @@
 
 - [Node.js](https://nodejs.org/) (LTS)
 
-## Локальный просмотр
+## Локальный просмотр и деплой
+
+Скрипты **`./serve.sh`** и **`./deploy.sh`** лежат в **корне репозитория**. Запускайте их из корня после клона — зависимости установятся при первом запуске.
 
 ```bash
+# из корня site-eaglesecurity
 ./serve.sh
+# Откройте http://localhost:8080
 ```
-
-Откройте **http://localhost:8080**
 
 ## Деплой на GitHub Pages
 
 Сайт по адресу `https://<username>.github.io/site-eaglesecurity/`:
 
+**Из клона site-eaglesecurity:**
 ```bash
 GITHUB_PAGES=1 ./deploy.sh
 ```
+
+**Из монорепо lide** (папка `app/site-eaglesecurity` или `app/play/site-eaglesecurity`), добавьте remote и деплойте в него:
+```bash
+git remote add site-eaglesecurity git@github.com:nedimonvam/site-eaglesecurity.git   # один раз
+REMOTE=site-eaglesecurity GITHUB_PAGES=1 ./deploy.sh
+```
+
+В репозитории на GitHub: **Settings → Pages → Source**: ветка **publish**, папка **/ (root)**.
 
 Сборка использует pathPrefix `/site-eaglesecurity/`. Публикация в ветку **publish**.
 

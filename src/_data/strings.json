@@ -12,7 +12,11 @@
     "download_free": "Eagle Security FREE",
     "download_unlimited": "Eagle Security UNLIMITED",
     "lang_switch": "DE",
-    "slogan": "IMSI-catcher catcher. Smart anti-wiring application"
+    "slogan": "IMSI-catcher catcher. Smart anti-wiring application",
+    "tagline": "IMSI-catcher catcher. Smart anti-wiring application, fake base stations detecting",
+    "faq_search_placeholder": "Search FAQ...",
+    "questions_faq_before": "If you have questions, see the ",
+    "questions_faq_after": " section."
   },
   "de": {
     "nav_home": "Eagle Security",
@@ -27,6 +31,10 @@
     "download_free": "Eagle Security FREE",
     "download_unlimited": "Eagle Security UNLIMITED",
     "lang_switch": "EN",
-    "slogan": "IMSI-Catcher-Erkennung. Clevere Anti-Abhör-App"
+    "slogan": "IMSI-Catcher-Erkennung. Clevere Anti-Abhör-App",
+    "tagline": "IMSI-Catcher-Erkennung. Clevere Anti-Abhör-App, Erkennung gefälschter Basisstationen",
+    "faq_search_placeholder": "FAQ durchsuchen...",
+    "questions_faq_before": "Bei Fragen wenden Sie sich an den Abschnitt ",
+    "questions_faq_after": "."
   }
 }

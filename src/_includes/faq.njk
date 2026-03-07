@@ -4,9 +4,12 @@
 <article class="page">
   <h1 class="page__title">{{ title }}</h1>
   {% if faq %}
-  <ul class="faq__list">
+  <div class="faq__search-wrap">
+    <input type="search" class="faq__search" id="faq-search" placeholder="{{ t.faq_search_placeholder }}" autocomplete="off" aria-label="{{ t.faq_search_placeholder }}">
+  </div>
+  <ul class="faq__list" id="faq-list">
     {% for item in faq %}
-    <li class="faq__item">
+    <li class="faq__item" data-search-text="{{ (item.q + ' ' + item.a) | lower | replace('\n', ' ') | e }}">
       <p class="faq__q">{{ item.q }}</p>
       <div class="faq__a">{{ item.a | safe }}</div>
     </li>
@@ -18,4 +21,20 @@
     <a href="mailto:eagle.app.project@gmail.com?subject={{ t.ask_question | urlencode }}" class="faq__cta-btn">{{ t.ask_question }}</a>
   </div>
 </article>
+<script>
+(function() {
+  var input = document.getElementById('faq-search');
+  var list = document.getElementById('faq-list');
+  if (!input || !list) return;
+  var items = list.querySelectorAll('.faq__item');
+  input.addEventListener('input', function() {
+    var words = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    items.forEach(function(el) {
+    var text = (el.getAttribute('data-search-text') || '').toLowerCase();
+    var show = words.length === 0 || words.every(function(w) { return text.indexOf(w) !== -1; });
+    el.classList.toggle('faq__item--hidden', !show);
+    });
+  });
+})();
+</script>
 {% endblock %}
