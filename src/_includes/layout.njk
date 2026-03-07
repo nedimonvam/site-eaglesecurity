@@ -1,0 +1,45 @@
+{% if locale == 'en' %}
+{% set baseUrl = pathPrefix %}
+{% else %}
+{% set baseUrl = pathPrefix + '/de' %}
+{% endif %}
+{% set t = strings[locale] %}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "Eagle Security" }} · Eagle Security</title>
+  <link rel="stylesheet" href="{{ pathPrefix }}/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="{{ pathPrefix }}/assets/img/logo.png" type="image/png">
+</head>
+<body>
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    <a href="{{ baseUrl }}/">{{ t.nav_home }}</a>
+    <span class="sep">·</span>
+    <a href="{{ baseUrl }}/impressum/">{{ t.nav_impressum }}</a>
+    <span class="sep">·</span>
+    {% if locale == 'en' %}
+    <a href="{{ baseUrl }}/privacy/">{{ t.nav_privacy }}</a>
+    {% else %}
+    <a href="{{ baseUrl }}/datenschutz/">{{ t.nav_privacy }}</a>
+    {% endif %}
+    <span class="sep">·</span>
+    <a href="{{ baseUrl }}/faq/">{{ t.nav_faq }}</a>
+    <span class="sep">·</span>
+    <span class="lang-switch">
+      {% if locale == 'en' %}
+      <a href="{{ pathPrefix }}/de/" aria-label="Deutsch">DE</a>
+      {% else %}
+      <a href="{{ pathPrefix }}/" aria-label="English">EN</a>
+      {% endif %}
+    </span>
+  </footer>
+</body>
+</html>

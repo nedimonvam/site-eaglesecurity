@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+{% set t = strings[locale] %}
+{% set apps = apps %}
+{% block content %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Eagle Security",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Android",
+  "description": "IMSI-catcher catcher. Smart anti-wiring application. Protect yourself from spyware and IMSI catchers.",
+  "offers": [
+    { "@type": "Offer", "url": "https://play.google.com/store/apps/details?id=com.integer.eaglesecurity_free", "name": "Eagle Security FREE" },
+    { "@type": "Offer", "url": "https://play.google.com/store/apps/details?id=com.integer.eaglesecurity_unlim", "name": "Eagle Security UNLIMITED" }
+  ],
+  "author": { "@type": "Organization", "name": "Int64", "email": "eagle.app.project@gmail.com" }
+}
+</script>
+<div class="home">
+  <div class="home__frame">
+    <pre class="home__dim">+============================================================+
+|                                                            |
+|   ███████╗ █████╗  ██████╗ ██╗     ███████╗              |
+|   ██╔════╝██╔══██╗██╔════╝ ██║     ██╔════╝              |
+|   █████╗  ███████║██║  ███╗██║     █████╗                |
+|   ██╔══╝  ██╔══██║██║   ██║██║     ██╔══╝                |
+|   ███████╗██║  ██║╚██████╔╝███████╗███████╗              |
+|   ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝              |
+|              ~~  S E C U R I T Y  ~~                      |
+|                                                            |
+|  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  |
+|                                                            |</pre>
+    <div class="home__logo-wrap">
+      <img src="{{ pathPrefix }}/assets/img/logo.png" alt="Eagle Security" class="home__logo-img" width="120" height="120" loading="eager">
+    </div>
+    <pre class="home__dim">|  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  |
+|  =========================================================  |
+|                                                            |</pre>
+    <pre class="home__menu-line">|  <a href="#download" class="home__menu-link" id="menu-download"><span class="home__menu-arr">>> </span><span class="home__bright">[ {{ t.menu_download | upper }} ]</span></a>                           |</pre>
+    <pre class="home__dim">|                                                            |</pre>
+    <pre class="home__menu-line">|  <a href="{{ baseUrl }}/faq/" class="home__menu-link"><span class="home__menu-arr">>> </span><span class="home__bright">[ {{ t.menu_faq | upper }} ]</span></a>                                   |</pre>
+    <pre class="home__dim">|                                                            |</pre>
+    <pre class="home__menu-line">|  <a href="{{ baseUrl }}/impressum/" class="home__menu-link"><span class="home__menu-arr">>> </span><span class="home__bright">[ {{ t.menu_impressum | upper }} ]</span></a>                       |</pre>
+    <pre class="home__dim">|                                                            |</pre>
+    <pre class="home__menu-line">|  <a href="{{ baseUrl }}/{% if locale == 'en' %}privacy/{% else %}datenschutz/{% endif %}" class="home__menu-link"><span class="home__menu-arr">>> </span><span class="home__bright">[ {{ t.menu_privacy | upper }} ]</span></a>                           |</pre>
+    <pre class="home__dim">|                                                            |</pre>
+    <pre class="home__dim">|  =========================================================  |
+|                                                            |
+|  USE ARROW KEYS OR MOUSE TO NAVIGATE  <span class="home__blink">_</span>                  |
+|                                                            |
++============================================================+</pre>
+  </div>
+
+  <section class="home__download-section" id="download">
+    <div class="home__download-buttons">
+      <a href="{{ apps[0].link }}" class="home__download-btn" target="_blank" rel="noopener noreferrer">{{ t.download_free }}</a>
+      <a href="{{ apps[1].link }}" class="home__download-btn" target="_blank" rel="noopener noreferrer">{{ t.download_unlimited }}</a>
+    </div>
+  </section>
+</div>
+<script>
+(function() {
+  var items = document.querySelectorAll('.home__menu-link');
+  var cur = -1;
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown') { cur = (cur + 1) % items.length; items[cur].focus(); e.preventDefault(); }
+    if (e.key === 'ArrowUp') { cur = (cur - 1 + items.length) % items.length; items[cur].focus(); e.preventDefault(); }
+    if (e.key === 'Enter' && cur >= 0) items[cur].click();
+  });
+  items.forEach(function(el, i) { el.addEventListener('focus', function() { cur = i; }); });
+})();
+</script>
+{% endblock %}

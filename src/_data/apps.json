@@ -1,0 +1,22 @@
+[
+  {
+    "id": "free",
+    "title": "Eagle Security FREE",
+    "title_de": "Eagle Security FREE",
+    "title_en": "Eagle Security FREE",
+    "link": "https://play.google.com/store/apps/details?id=com.integer.eaglesecurity_free",
+    "logo": "/assets/img/logo.png",
+    "description_en": "Protect yourself from spyware and IMSI catchers. Monitor cell network, control app permissions, disable camera and microphone when needed.",
+    "description_de": "Schutz vor Spyware und IMSI-Catchern. Mobilfunknetz überwachen, App-Berechtigungen prüfen, Kamera und Mikrofon bei Bedarf deaktivieren."
+  },
+  {
+    "id": "unlimited",
+    "title": "Eagle Security UNLIMITED",
+    "title_de": "Eagle Security UNLIMITED",
+    "title_en": "Eagle Security UNLIMITED",
+    "link": "https://play.google.com/store/apps/details?id=com.integer.eaglesecurity_unlim",
+    "logo": "/assets/img/logo.png",
+    "description_en": "Full-featured version with no limits.",
+    "description_de": "Vollversion ohne Einschränkungen."
+  }
+]

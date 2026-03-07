@@ -1,0 +1,21 @@
+{% extends "layout.njk" %}
+{% set t = strings[locale] %}
+{% block content %}
+<article class="page">
+  <h1 class="page__title">{{ title }}</h1>
+  {% if faq %}
+  <ul class="faq__list">
+    {% for item in faq %}
+    <li class="faq__item">
+      <p class="faq__q">{{ item.q }}</p>
+      <div class="faq__a">{{ item.a | safe }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {{ content | safe }}
+  <div class="faq__cta">
+    <a href="mailto:eagle.app.project@gmail.com?subject={{ t.ask_question | urlencode }}" class="faq__cta-btn">{{ t.ask_question }}</a>
+  </div>
+</article>
+{% endblock %}

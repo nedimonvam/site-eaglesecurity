@@ -1,0 +1,32 @@
+{
+  "en": {
+    "nav_home": "Eagle Security",
+    "nav_impressum": "Impressum",
+    "nav_privacy": "Privacy",
+    "nav_faq": "FAQ",
+    "menu_download": "Download",
+    "menu_faq": "FAQ",
+    "menu_impressum": "Impressum",
+    "menu_privacy": "Privacy",
+    "ask_question": "Ask a question",
+    "download_free": "Eagle Security FREE",
+    "download_unlimited": "Eagle Security UNLIMITED",
+    "lang_switch": "DE",
+    "slogan": "IMSI-catcher catcher. Smart anti-wiring application"
+  },
+  "de": {
+    "nav_home": "Eagle Security",
+    "nav_impressum": "Impressum",
+    "nav_privacy": "Datenschutz",
+    "nav_faq": "FAQ",
+    "menu_download": "Download",
+    "menu_faq": "FAQ",
+    "menu_impressum": "Impressum",
+    "menu_privacy": "Datenschutz",
+    "ask_question": "Frage stellen",
+    "download_free": "Eagle Security FREE",
+    "download_unlimited": "Eagle Security UNLIMITED",
+    "lang_switch": "EN",
+    "slogan": "IMSI-Catcher-Erkennung. Clevere Anti-Abhör-App"
+  }
+}

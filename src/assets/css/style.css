@@ -1,0 +1,295 @@
+/* Eagle Security — minimal, mono, retro terminal, WCAG AA */
+
+:root {
+  --bg: #080808;
+  --fg: #ffffff;
+  --fg-dim: #b0b0b0;
+  --accent: #CD853F;
+  --accent-hover: #e09d52;
+  --muted: #6a6a6a;
+  --border: #2a2a2a;
+  --font-mono: "Fira Code", "Consolas", "Lucida Console", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  width: 100%;
+}
+
+.main:has(.home) {
+  padding-bottom: 1.5rem;
+}
+
+.footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.footer .sep {
+  margin: 0 0.5rem;
+  color: var(--fg-dim);
+}
+
+.lang-switch {
+  margin-left: 0.25rem;
+}
+
+.lang-switch a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Retro frame (scanlines optional) */
+.retro-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(0,0,0,.12) 3px 4px);
+  z-index: 10;
+}
+
+.retro-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, transparent 48%, rgba(0,0,0,.5) 100%);
+  z-index: 9;
+}
+
+/* Home — retro menu (80s–90s game style) */
+.home {
+  text-align: center;
+  padding: 1rem 0.5rem 1.25rem;
+  position: relative;
+}
+
+.home__frame {
+  font-size: clamp(0.5rem, 2vw, 0.85rem);
+  line-height: 1.3;
+  display: inline-block;
+  text-align: left;
+  animation: boot 0.6s steps(1) both;
+}
+
+@keyframes boot {
+  0%, 60% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.home__dim {
+  color: var(--fg-dim);
+}
+
+.home__bright {
+  color: var(--fg);
+}
+
+.home__glow {
+  color: var(--fg);
+  text-shadow: 0 0 4px #fff, 0 0 10px #ccc, 0 0 20px #888;
+  animation: flicker 9s infinite;
+}
+
+@keyframes flicker {
+  0%, 91% { opacity: 1; }
+  92% { opacity: 0.75; }
+  93% { opacity: 1; }
+  96.5% { opacity: 0.88; }
+  97% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.home__logo-wrap {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.home__logo-img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.home__menu-link {
+  display: inline-block;
+  color: var(--fg-dim);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home__menu-link:hover,
+.home__menu-link:focus {
+  color: var(--fg);
+  text-shadow: 0 0 6px #fff, 0 0 14px #aaa;
+  outline: none;
+}
+
+.home__menu-link:hover .home__menu-arr,
+.home__menu-link:focus .home__menu-arr {
+  opacity: 1;
+}
+
+.home__menu-arr {
+  opacity: 0;
+}
+
+.home__blink {
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.home__download-section {
+  margin: 2rem 0 1rem;
+  padding: 1rem 0;
+}
+
+.home__download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__download-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.home__download-btn:hover {
+  background: rgba(205, 133, 63, 0.15);
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Page (Impressum, Datenschutz, FAQ) */
+.page__title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  color: var(--fg);
+}
+
+.page__body {
+  color: var(--fg);
+}
+
+.page__body p {
+  margin: 0 0 1rem;
+}
+
+.page__body h2,
+.page__body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--accent);
+}
+
+.page__body a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.page__body a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+/* FAQ */
+.faq__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.faq__item {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+.faq__q {
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.faq__a {
+  margin: 0;
+  color: var(--fg);
+}
+
+.faq__cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.faq__cta-btn {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.faq__cta-btn:hover {
+  background: rgba(205, 133, 63, 0.15);
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
