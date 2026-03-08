@@ -1,0 +1,92 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ · Eagle Security</title>
+  <base href="/">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/logo.webp" type="image/webp">
+</head>
+<body>
+  <main class="main">
+    
+<article class="page">
+  <h1 class="page__title">FAQ</h1>
+  
+  <div class="faq__search-wrap">
+    <input type="search" class="faq__search" id="faq-search" placeholder="FAQ durchsuchen..." autocomplete="off" aria-label="FAQ durchsuchen...">
+  </div>
+  <ul class="faq__list" id="faq-list">
+    
+    <li class="faq__item" data-search-text="was ist eagle security? eagle security ist eine android-app zum schutz vor spyware und imsi-catchern. sie ermöglicht die überwachung des mobilfunknetzes, die prüfung von app-berechtigungen und die deaktivierung von kamera und mikrofon bei bedarf.">
+      <p class="faq__q">Was ist Eagle Security?</p>
+      <div class="faq__a">Eagle Security ist eine Android-App zum Schutz vor Spyware und IMSI-Catchern. Sie ermöglicht die Überwachung des Mobilfunknetzes, die Prüfung von App-Berechtigungen und die Deaktivierung von Kamera und Mikrofon bei Bedarf.</div>
+    </li>
+    
+    <li class="faq__item" data-search-text="gibt es eine kostenlose version? ja. eagle security free ist im google play store erhältlich. eagle security unlimited bietet den vollen funktionsumfang ohne einschränkungen.">
+      <p class="faq__q">Gibt es eine kostenlose Version?</p>
+      <div class="faq__a">Ja. Eagle Security FREE ist im Google Play Store erhältlich. Eagle Security UNLIMITED bietet den vollen Funktionsumfang ohne Einschränkungen.</div>
+    </li>
+    
+    <li class="faq__item" data-search-text="wie schützt die app vor imsi-catchern? die app prüft die signaturen von basisstationen und verfolgt deren positionen. verdächtige oder wandernde stationen können markiert werden, damit sie ihr handy in solchen fällen nicht nutzen.">
+      <p class="faq__q">Wie schützt die App vor IMSI-Catchern?</p>
+      <div class="faq__a">Die App prüft die Signaturen von Basisstationen und verfolgt deren Positionen. Verdächtige oder wandernde Stationen können markiert werden, damit Sie Ihr Handy in solchen Fällen nicht nutzen.</div>
+    </li>
+    
+    <li class="faq__item" data-search-text="wie kann ich sie kontaktieren? nutzen sie die schaltfläche „frage stellen“ unten, um eine e-mail an eagle.app.project@gmail.com zu senden.">
+      <p class="faq__q">Wie kann ich Sie kontaktieren?</p>
+      <div class="faq__a">Nutzen Sie die Schaltfläche „Frage stellen“ unten, um eine E-Mail an eagle.app.project@gmail.com zu senden.</div>
+    </li>
+    
+  </ul>
+  
+  
+  <div class="faq__cta">
+    <a href="mailto:eagle.app.project@gmail.com?subject=Frage%20stellen" class="faq__cta-btn">Frage stellen</a>
+  </div>
+</article>
+<script>
+(function() {
+  var input = document.getElementById('faq-search');
+  var list = document.getElementById('faq-list');
+  if (!input || !list) return;
+  var items = list.querySelectorAll('.faq__item');
+  input.addEventListener('input', function() {
+    var words = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    items.forEach(function(el) {
+    var text = (el.getAttribute('data-search-text') || '').toLowerCase();
+    var show = words.length === 0 || words.every(function(w) { return text.indexOf(w) !== -1; });
+    el.classList.toggle('faq__item--hidden', !show);
+    });
+  });
+})();
+</script>
+
+  </main>
+  <footer class="footer">
+    <a href="/de/">Eagle Security</a>
+    <span class="sep">·</span>
+    <a href="/de/impressum/">Impressum</a>
+    <span class="sep">·</span>
+    
+    <a href="/de/datenschutz/">Datenschutz</a>
+    
+    <span class="sep">·</span>
+    <a href="/de/faq/">FAQ</a>
+    <span class="sep">·</span>
+    <span class="lang-switch">
+      
+      <a href="/" aria-label="English">EN</a>
+      
+    </span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ · Eagle Security</title>
+  <base href="/">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/logo.webp" type="image/webp">
+</head>
+<body>
+  <main class="main">
+    
+<article class="page">
+  <h1 class="page__title">FAQ</h1>
+  
+  <div class="faq__search-wrap">
+    <input type="search" class="faq__search" id="faq-search" placeholder="Search FAQ..." autocomplete="off" aria-label="Search FAQ...">
+  </div>
+  <ul class="faq__list" id="faq-list">
+    
+    <li class="faq__item" data-search-text="what is eagle security? eagle security is an android app that helps protect you from spyware and imsi catchers. it lets you monitor the cell network, check app permissions, and disable the camera and microphone when needed.">
+      <p class="faq__q">What is Eagle Security?</p>
+      <div class="faq__a">Eagle Security is an Android app that helps protect you from spyware and IMSI catchers. It lets you monitor the cell network, check app permissions, and disable the camera and microphone when needed.</div>
+    </li>
+    
+    <li class="faq__item" data-search-text="is there a free version? yes. eagle security free is available on google play. eagle security unlimited offers the full feature set without limits.">
+      <p class="faq__q">Is there a free version?</p>
+      <div class="faq__a">Yes. Eagle Security FREE is available on Google Play. Eagle Security UNLIMITED offers the full feature set without limits.</div>
+    </li>
+    
+    <li class="faq__item" data-search-text="how does it protect against imsi catchers? the app checks base station signatures and tracks their positions. suspicious or moving stations can be flagged so you can avoid using your phone when connected to them.">
+      <p class="faq__q">How does it protect against IMSI catchers?</p>
+      <div class="faq__a">The app checks base station signatures and tracks their positions. Suspicious or moving stations can be flagged so you can avoid using your phone when connected to them.</div>
+    </li>
+    
+    <li class="faq__item" data-search-text="how can i contact you? use the “ask a question” button below to send an e-mail to eagle.app.project@gmail.com.">
+      <p class="faq__q">How can I contact you?</p>
+      <div class="faq__a">Use the “Ask a question” button below to send an e-mail to eagle.app.project@gmail.com.</div>
+    </li>
+    
+  </ul>
+  
+  
+  <div class="faq__cta">
+    <a href="mailto:eagle.app.project@gmail.com?subject=Ask%20a%20question" class="faq__cta-btn">Ask a question</a>
+  </div>
+</article>
+<script>
+(function() {
+  var input = document.getElementById('faq-search');
+  var list = document.getElementById('faq-list');
+  if (!input || !list) return;
+  var items = list.querySelectorAll('.faq__item');
+  input.addEventListener('input', function() {
+    var words = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    items.forEach(function(el) {
+    var text = (el.getAttribute('data-search-text') || '').toLowerCase();
+    var show = words.length === 0 || words.every(function(w) { return text.indexOf(w) !== -1; });
+    el.classList.toggle('faq__item--hidden', !show);
+    });
+  });
+})();
+</script>
+
+  </main>
+  <footer class="footer">
+    <a href="/">Eagle Security</a>
+    <span class="sep">·</span>
+    <a href="/impressum/">Impressum</a>
+    <span class="sep">·</span>
+    
+    <a href="/privacy/">Privacy</a>
+    
+    <span class="sep">·</span>
+    <a href="/faq/">FAQ</a>
+    <span class="sep">·</span>
+    <span class="lang-switch">
+      
+      <a href="/de/" aria-label="Deutsch">DE</a>
+      
+    </span>
+  </footer>
+</body>
+</html>
